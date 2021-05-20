@@ -14,25 +14,39 @@ The objective of the project is to develop an algorithm for detecting and rectif
 ## Build Status
 
 ## Code Style
+
 ## Screenshot / GIF / Video
+
 ## Tech & Frame WorkUsed
 <div align="justify">
 The following tools and frameworks were utilized in the building of this code.
 </div>
+
 ## Features
 <div align="justify">
 The following features are integrated in the given code. Each of these features are explained in detail in it's respective repository.
 </div>
+
 #### Background Subtraction
+
 #### Edge Detection
+
 #### Object Detection
+
 #### Object Focus / Cut
+
 #### Segmentation (Instance & Semantic)
+
 #### Quality Metrics 
+
 ##### Image
+
 ##### Video
+
 ##### IOU
+
 ##### Jaccard
+
 ## Code Example
 ## Installation & Requirements / Development Setup
 <div align="justify">
