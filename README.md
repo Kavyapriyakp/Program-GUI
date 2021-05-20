@@ -48,13 +48,21 @@ The following features are integrated in the given code. Each of these features 
 ##### Jaccard
 
 ## Code Example
+
 ## Installation & Requirements / Development Setup
+
 <div align="justify">
 This program is originally intended to work on GPUs.
 </div>
+
 ## API Reference
+
 ## User Guide
+
 ## Work under Progress
+
 ## Credit / Contributors & Owners
+
 ## Licence
+
 ## Feedback
