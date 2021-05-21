@@ -1,4 +1,5 @@
-# Program-GUI
+<h1 align="center"><a name="section_name">Program-GUI</a></h1>
+
 <div align="justify">
 A GUI model of a software prototype with latest features developed to aid surveillance systems' monitoring.
 </div>
@@ -56,33 +57,30 @@ The code was originally created on
 The following features are integrated in the given code. Each of these features are explained in detail in it's respective repository.
 </div>
 
-#### Background Subtraction
-
-#### Edge Detection
-
-#### Object Detection
-
-#### Object Focus / Cut
-
-#### Segmentation (Instance & Semantic)
-
-#### Quality Metrics 
-
-##### Image
-
-##### Video
-
-##### IOU
-
-##### Jaccard
+1. Background Modification
+   1. Blur
+   2. Subtraction
+2. Detection
+   1. Moving Objects
+   2. Object Edges
+   3. Intruder Alert
+   4. Object Cut
+3. Classification & Segmentation
+   1. Instance
+   2. Semantic
+4. Quality Metrics
+   1. Image
+   2. Video
+   3. IOU
+   4. Jaccard
 
 ## Code Example
 
 The following table mentions all the user-defined functions and it's corresponding description.
 
-|  Function  |  Description  |  
-|---|---|
-|`cameradetect` | detects a connected surveillance device, else throws error |
+|  Function  |  Description  |  Arguments |
+|---|---|---|
+|`cameradetect` | detects a connected surveillance device, else throws error |-|
 |`edgedetect`| |
 |`backgroundsubtraction`| |
 |`bgblur`| |
@@ -120,3 +118,5 @@ This program is originally intended to work on GPUs.
 ## Licence
 
 ## Feedback
+
+[Go to Top](#section_name)
