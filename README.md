@@ -99,10 +99,7 @@ import sys
 
 ## Project Structure
 
-var routes = (
-<Route name="Requirements">
-  </Route>
-  );
+
 
 
 ## Installation & Dependencies / Development Setup
