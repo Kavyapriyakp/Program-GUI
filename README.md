@@ -1,9 +1,9 @@
 # Program-GUI
-GUI of a software prototype with latest features developed to aid surveillance systems' monitoring.
+A GUI model of a software prototype with latest features developed to aid surveillance systems' monitoring.
 
 ## Project Title
 <div align="justify">
-Reuqirement of real-time compensation for turbulence and detecting moving objects 
+The developed GUI corresponds to the project title "Reuqirement of real-time compensation for turbulence and detecting moving objects".
 </div>
 
 ## About
@@ -12,6 +12,9 @@ The objective of the project is to develop an algorithm for detecting and rectif
 </div>
 
 ## Build Status
+
+<img src="https://img.shields.io/badge/build-passing-brightgreen"/>
+
 
 ## Code Style
 
