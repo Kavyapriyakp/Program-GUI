@@ -118,11 +118,7 @@ import sys
 
 ## Installation & Dependencies / Development Setup
 
-<div align="justify">
 
-The above mentioned data models can be downloaded from [here](https://drive.google.com/drive/folders/1jtSFQN3W6_tkF5QVUYto5slp_wvntIQO?usp=sharing).
-
-</div>
 <div align="justify">
 
 The GUI code supports *tensorflow*'s version (2.0 - 2.4.1). Install *tensorflow* using:
@@ -146,6 +142,19 @@ pip3 install pixellib --upgrade
 ```
 </div>
 
+<div align="justify">
+There are two types of Deeplabv3+ models available for performing semantic segmentation with PixelLib:
+
+1. Deeplabv3+ model with xception as network backbone trained on Ade20k dataset, a dataset with 150 classes of objects.
+2. Deeplabv3+ model with xception as network backbone trained on Pascalvoc dataset, a dataset with 20 classes of objects. 
+
+Instance segmentation is implemented with PixelLib by using Mask R-CNN model trained on coco dataset. The latest version of PixelLib supports custom training of object segmentation models using pretrained coco model.
+
+
+Deeplab and mask r-ccn models are available in the above mentioned data models directory and can be downloaded from [here](https://drive.google.com/drive/folders/1jtSFQN3W6_tkF5QVUYto5slp_wvntIQO?usp=sharing).
+
+</div>
+
 ## API Reference
 
 ## User Guide
@@ -154,8 +163,10 @@ pip3 install pixellib --upgrade
 
 ## Credit / Contributors & Owners
 
-## Licence
+## References
 
-## Feedback
+1. Bonlime, Keras implementation of Deeplab v3+ with pretrained weights  https://github.com/bonlime/keras-deeplab-v3-plus
+2. Mask R-CNN code made compatible with tensorflow 2.0, https://github.com/tomgross/Mask_RCNN/tree/tensorflow-2.0
+3. TensorFlow DeepLab Model Zoo https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/model_zoo.md
 
 [Go to Top](#section_name)
