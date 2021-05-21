@@ -1,0 +1,6 @@
+1. deeplabv3_xception65_ade20k.h5
+2. mask_rcnn_coco.h5
+3. resnet-34_kinetics.onnx
+4. xception_pascalvoc.pb
+
+The above mentioned data models can be downloaded from : https://drive.google.com/drive/folders/1jtSFQN3W6_tkF5QVUYto5slp_wvntIQO?usp=sharing
