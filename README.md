@@ -15,9 +15,7 @@ The objective of the project is to develop an algorithm for detecting and rectif
 
 ## Build Status
 
-<img src="https://img.shields.io/badge/build-passing-brightgreen"/>
-<img src="https://img.shields.io/badge/code-latest-orange"/>
-<img src="https://img.shields.io/badge/langugage-python-blue"/>
+<img src="https://img.shields.io/badge/build-passing-brightgreen"/> <img src="https://img.shields.io/badge/code-latest-orange"/> <img src="https://img.shields.io/badge/langugage-python-blue"/>
 
 
 ## Intended Use
