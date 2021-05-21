@@ -74,46 +74,30 @@ The following features are integrated in the given code. Each of these features 
    3. IOU
    4. Jaccard
 
-## Code Example
 
-The following table mentions all the user-defined functions and it's corresponding description.
-
-| Method                  | Description                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `cameradetect`          | detects if any surveillance device is connected, else throws error                                     |
-| `edgedetect`            | detects and marks boundaries of objects within images                                                  |
-| `backgroundsubtraction` | extracs foreground and background of image                                                             |
-| `bgblur`                | applies a low-pass filter to blur outlier pixles                                                       |
-| `bgcolour`              | sets a colour to outlier pixels                                                                        |
-| `inst_seg`             | detects distinct instances of objects of interest in the image                                         |
-| `sem_seg`              | detecs objects of different class of interest in the image                                             |
-| `drawRectangle`         | - encloses the moving object within a bounding<br>- takes 2 consecutive images / frames as arguments |
-| `objdetect`             | - detects moving objects<br>- draws bouding box by calling `drawRectangle` method|
-
-
-```Python
-import time
-import sys
-```
 
 
 ## Project Structure
 
-├── app<br>
-│   ├── css<br>
-│   │   ├── **/*.css<br>
-│   ├── favicon.ico<br>
-│   │   ├── **/*.js<br>
-│   └── partials/template<br>
-├── dist (or build)<br>
-├── node_modules<br>
-├── bower_components (if using bower)<br>
-├── test<br>
-├── Gruntfile.js/gulpfile.js<br>
-├── README.md<br>
-├── package.json<br>
-├── bower.json (if using bower)<br>
-└── .gitignore<br>
+├── Data Models<br>
+│   ├── List of data models.txt<br>
+├── Input<br>
+│   ├── 01<br>
+│   ├── 02<br>
+│   ├── 03<br>
+├── Logos<br>
+│   ├── DRDO.png<br>
+├── Output<br>
+│   ├── 01<br>
+│   ├── 02<br>
+│   ├── 03<br>
+├── Program<br>
+│   ├── GUI.py<br>
+├── Requirements<br>
+│   ├── requirements.txt<br>
+└── README.md<br>
+
+## User Guide
 
 
 ## Installation & Dependencies / Development Setup
@@ -152,9 +136,139 @@ Instance segmentation is implemented with PixelLib by using Mask R-CNN model tra
 
 </div>
 
-## API Reference
+## Code Example
 
-## User Guide
+The following table mentions all the user-defined functions and it's corresponding description.
+
+| Method                  | Description                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `cameradetect()`          | detects if any surveillance device is connected, else throws error                                     |
+| `edgedetect()`            | detects and marks boundaries of objects within images                                                  |
+| `backgroundsubtraction()` | extracs foreground and background of image                                                             |
+| `bgblur()`                | applies a low-pass filter to blur outlier pixles                                                       |
+| `bgcolour()`              | sets a colour to outlier pixels                                                                        |
+| `inst_seg()`             | detects distinct instances of objects of interest in the image                                         |
+| `sem_seg()`              | detecs objects of different class of interest in the image                                             |
+| `drawRectangle(frame, minus_frame)`         | - encloses the moving object within a bounding<br>- takes 2 consecutive images / frames as arguments |
+| `objdetect()`             | - detects moving objects<br>- draws bouding box by calling `drawRectangle` method|
+
+
+<details>
+<summary>Reading video input and extracting frames</summary>
+
+```Python
+cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('<file_path>')
+```
+<div align="justify">
+`cap` is the object on `VideoCapture()` method to capture a video. It accepts either the device index or the name of a video file. 
+
+The `cap.read()` returns a boolean value.  It will return True, if the frame is read correctly.
+</div>
+
+```Python
+while(1): 
+        ret, frame = cap.read()
+```
+<div align="justify">
+This code initiates an infinite loop (to be broken later by a break statement), where we have ret and frame being defined as the cap.read(). Basically, ret is a boolean regarding whether or not there was a return at all, at the frame is each frame that is returned. If there is no frame, you wont get an error, you will get None.
+</div>
+
+```Python
+cv2.imshow('Input',frame)
+```
+
+```Python
+k = cv2.waitKey(5) & 0xFF
+if k == ord("q"): 
+    break
+```
+
+```Python
+cap.release() 
+cv2.destroyAllWindows()
+```
+
+</details>
+
+
+<details>
+<summary>Using in-built Python functions</summary>
+
+```Python
+hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV) 
+```
+
+```Python
+lower_red = np.array([30,150,50]) 
+upper_red = np.array([255,255,180]) 
+mask = cv2.inRange(hsv, lower_red, upper_red) 
+res = cv2.bitwise_and(frame,frame, mask= mask)  
+```
+
+```Python
+edges = cv2.Canny(frame,100,200)
+```
+
+```Python
+fgbg = cv2.createBackgroundSubtractorMOG2()
+```
+
+```Python
+fgmask = fgbg.apply(frame)
+```
+
+```Python
+kernel_d = np.ones((3,3), np.uint8)
+kernel_e = np.ones((3,3), np.uint8)
+```
+```Python
+if(is_blur):
+	minus_frame = GaussianBlur(minus_frame, kernel_gauss, 0)
+minus_Matrix = np.float32(minus_frame)	
+```
+
+```Python
+minus_Matrix = np.clip(minus_Matrix, 0, 255)
+	minus_Matrix = np.array(minus_Matrix, np.uint8)
+```
+
+```Python
+contours, hierarchy = findContours(minus_Matrix.copy(), RETR_TREE, CHAIN_APPROX_SIMPLE)
+```
+
+```Python
+(x, y, w, h) = boundingRect(c)	
+rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+```		
+
+</details>
+
+
+<details>
+<summary>Creating the GUI</summary>
+
+
+```Python
+window=Tk()
+window.configure(background="grey64");
+window.title("Border Surveillance System")
+window.resizable(0,0)
+window.geometry('850x600')
+```	
+
+```Python
+clicked  = StringVar()
+chkValue = BooleanVar()
+```	
+
+```Python
+window.mainloop()
+```	
+
+</details>
+
+## API Reference
 
 ## Work under Progress
 
