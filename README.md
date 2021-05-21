@@ -100,9 +100,9 @@ import sys
 ## Project Structure
 
 
-├── app
-│   ├── css
-│   │   ├── **/*.css
+├── app<br>
+│   ├── css<br>
+│   │   ├── **/*.css<br>
 │   ├── favicon.ico
 │   ├── images
 │   ├── index.html
