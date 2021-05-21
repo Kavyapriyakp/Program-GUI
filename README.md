@@ -99,6 +99,7 @@ import sys
 
 ## Project Structure
 
+
 ├── app
 │   ├── css
 │   │   ├── **/*.css
@@ -117,6 +118,7 @@ import sys
 ├── package.json
 ├── bower.json (if using bower)
 └── .gitignore
+
 
 
 ## Installation & Dependencies / Development Setup
