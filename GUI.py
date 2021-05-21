@@ -1,3 +1,5 @@
+#______________________________________________________________HEADER FILES___________________________________________________________________
+
 import tkinter
 from tkinter import*
 from tkinter import ttk
@@ -8,7 +10,6 @@ from cv2 import *
 import numpy as np
 import sys
 import time
-import sys
 import pixellib
 from pixellib.instance import instance_segmentation
 from pixellib.tune_bg import alter_bg
@@ -17,7 +18,7 @@ import numpy as np
 import argparse
 import imutils
 
-#______________________________________________________________ALL FUNCTIONS___________________________________________________________________
+#______________________________________________________________USER-DEFINED FUNCTIONS___________________________________________________________________
 
 def cameradetect():
     cap = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64') 
@@ -194,12 +195,16 @@ def action_recog():
 
 #______________________________________________________________MAIN PROGRAM___________________________________________________
 
+#________________________________________________________INITALIZING THE GUI WINDOW___________________________________________________________________
+
    
 window=Tk()
 window.configure(background="grey64");
 window.title("Border Surveillance System")
 window.resizable(0,0)
 window.geometry('850x600')
+
+#____________________________________________SETTING VARIBALES TO CHECK STATE OF BUTTON (CHECKED OR UNCHECKED)___________________________________________________________________
 
 
 clicked= StringVar()
@@ -211,6 +216,9 @@ chkValue5 = BooleanVar()
 chkValue6 = BooleanVar()
 chkValue7 = BooleanVar()
 chkValue8 = BooleanVar()
+
+
+#____________________________________________________________CREATING BUTTONS_______________________________________________________________
 
 
 title = Label(window, text = "CARS-SRMIST",font=("Times New Roman",20, 'bold'),fg="black",bg="grey64").place(x= 350, y=10)
@@ -226,7 +234,9 @@ device.current()
 b3=Button(window,text = "Select",font=("Times New Roman",9, 'bold')).place(x=255, y=218)  
 t2= Label(window,text = "Modules",font=("Times New Roman",16, 'bold'),fg="black",bg="grey64").place(x=550,y=80)
 
-#_______________________________________________________________ALL BUTTONS__________________________________________________________________________
+
+#___________________________________________________________ADDING FUNCTIONALITES__________________________________________________________________________
+
 
 C1=Checkbutton(window,text = "Object Focus",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue1,command=bgblur).place(x=400,y=120)
 C2=Checkbutton(window,text = "Background Colour",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue2,command=bgcolour).place(x=400,y=150)
@@ -242,6 +252,9 @@ b4=Button(window,text = "Execute",font=("Times New Roman",12, 'bold')).place(x=5
 parameter=Button(window,text = "Parameters",font=("Times New Roman",14, 'bold'),state=DISABLED).place(x=380, y=395)
 
 
+#________________________________________________________FOOTER OF THE GUI WINDOW___________________________________________________________________
+
+
 photo = PhotoImage(file="./DRDO.png")
 frame=LabelFrame(window,width=850, height=150,fg="black",bg="aqua").place(x=0,y=450)
 foot=Label(frame,text = "Developed For",font=("Times New Roman",13, 'bold'),fg="black",bg="aqua").place(x=30,y=460)
@@ -249,5 +262,6 @@ imgLabel = Label(frame,image=photo,bg="aqua").place(x=40, y=490)
 textLabel =Label(frame,text = "  Instruments Research & \n Development Establishment",font=("Times New Roman",11, 'bold'),fg="black",bg="aqua").place(x=135,y=510)
 window.mainloop()
 
+#_____________________________________________________________END OF PROGRAM___________________________________________________________________
 
 
