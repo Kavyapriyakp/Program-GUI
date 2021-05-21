@@ -78,7 +78,7 @@ The following features are integrated in the given code. Each of these features 
 
 The following table mentions all the user-defined functions and it's corresponding description.
 
-| Function                  | Description                                                                                            |
+| Method                  | Description                                                                                            |
 | ------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `cameradetect`          | detects if any surveillance device is connected, else throws error                                     |
 | `edgedetect`            | detects and marks boundaries of objects within images                                                  |
@@ -88,7 +88,7 @@ The following table mentions all the user-defined functions and it's correspondi
 | `inst_seg`             | detects distinct instances of objects of interest in the image                                         |
 | `sem_seg`              | detecs objects of different class of interest in the image                                             |
 | `drawRectangle`         | - encloses the moving object within a bounding<br>- takes 2 consecutive images / frames as arguments |
-| `objdetect`             | - detects moving objects<br>- draws bouding box by calling `drawRectangle`|
+| `objdetect`             | - detects moving objects<br>- draws bouding box by calling `drawRectangle` method|
 
 
 ```Python
@@ -100,22 +100,39 @@ import sys
 ## Project Structure
 
 ├── app
+
 │   ├── css
+
 │   │   ├── **/*.css
+
 │   ├── favicon.ico
+
 │   ├── images
+
 │   ├── index.html
+
 │   ├── js
+
 │   │   ├── **/*.js
+
 │   └── partials/template
+
 ├── dist (or build)
+
 ├── node_modules
+
 ├── bower_components (if using bower)
+
 ├── test
+
 ├── Gruntfile.js/gulpfile.js
+
 ├── README.md
+
 ├── package.json
+
 ├── bower.json (if using bower)
+
 └── .gitignore
 
 
