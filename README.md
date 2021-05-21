@@ -103,21 +103,21 @@ import sys
 ├── app<br>
 │   ├── css<br>
 │   │   ├── **/*.css<br>
-│   ├── favicon.ico
-│   ├── images
-│   ├── index.html
-│   ├── js
-│   │   ├── **/*.js
-│   └── partials/template
-├── dist (or build)
-├── node_modules
-├── bower_components (if using bower)
-├── test
-├── Gruntfile.js/gulpfile.js
-├── README.md
-├── package.json
-├── bower.json (if using bower)
-└── .gitignore
+│   ├── favicon.ico<br>
+│   ├── images<br>
+│   ├── index.html<br>
+│   ├── js<br>
+│   │   ├── **/*.js<br>
+│   └── partials/template<br>
+├── dist (or build)<br>
+├── node_modules<br>
+├── bower_components (if using bower)<br>
+├── test<br>
+├── Gruntfile.js/gulpfile.js<br>
+├── README.md<br>
+├── package.json<br>
+├── bower.json (if using bower)<br>
+└── .gitignore<br>
 
 
 
