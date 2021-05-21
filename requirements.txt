@@ -1,9 +1,0 @@
-numpy 
-pillow
-scipy
-opencv-python
-scikit-image
-tensorflow
-imgaug
-matplotlib
-labelme2coco
