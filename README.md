@@ -123,6 +123,27 @@ import sys
 The above mentioned data models can be downloaded from [here](https://drive.google.com/drive/folders/1jtSFQN3W6_tkF5QVUYto5slp_wvntIQO?usp=sharing).
 
 </div>
+<div align="justify">
+The GUI code supports *tensorflow*'s version (2.0 - 2.4.1). Install *tensorflow* using:
+
+```Python
+pip3 install tensorflow
+```
+
+If you have have a PC enabled GPU, install *tensorflow--gpu*'s version that is compatible with the cuda installed on your pc:
+
+
+```Python
+pip3 install tensorflow--gpu
+```
+
+
+Install the latest version of *Pixellib* with:
+
+```Python
+pip3 install pixellib --upgrade
+```
+</div>
 
 ## API Reference
 
