@@ -161,6 +161,7 @@ cap = cv2.VideoCapture(0)
 cap = cv2.VideoCapture('<file_path>')
 ```
 <div align="justify">
+
 `cap` is the object on `VideoCapture()` method to capture a video. It accepts either the device index or the name of a video file. 
 
 The `cap.read()` returns a boolean value.  It will return True, if the frame is read correctly.
