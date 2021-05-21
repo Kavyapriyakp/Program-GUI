@@ -124,6 +124,7 @@ The above mentioned data models can be downloaded from [here](https://drive.goog
 
 </div>
 <div align="justify">
+
 The GUI code supports *tensorflow*'s version (2.0 - 2.4.1). Install *tensorflow* using:
 
 ```Python
