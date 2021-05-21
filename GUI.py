@@ -67,8 +67,10 @@ def backgroundsubtraction():
     cap.release() 
     cv2.destroyAllWindows()
 
-change_bg = alter_bg(model_type = "pb")
-change_bg.load_pascalvoc_model("xception_pascalvoc.pb")
+change_bg = alter_bg(model_type = "pb")                     #loading_data_model
+change_bg.load_pascalvoc_model("xception_pascalvoc.pb")     #loading_data_model
+
+
 def bgblur():
     capture = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64')
     change_bg.blur_camera(capture, frames_per_second=10,extreme = True, show_frames = True, frame_name = "frame", output_video_name="bgblur_out.mp4")
@@ -95,12 +97,12 @@ def sem_seg():
 kernel_d = np.ones((3,3), np.uint8)
 kernel_e = np.ones((3,3), np.uint8)
 kernel_gauss = (3,3)
-dilate_times = 13
-erode_times = 5
-is_blur = True
-is_close = True
-is_draw_ct = False
-fac = 2
+dilate_times = 13                       #initializing_integer_variables
+erode_times = 5                         #initializing_integer_variables
+is_blur = True                          #initializing_boolean_variables
+is_close = True                         #initializing_boolean_variables
+is_draw_ct = False                      #initializing_boolean_variables
+fac = 2                                 #initializing_integer_variables
 def drawRectangle(frame, minus_frame):
 	if(is_blur):
 		minus_frame = GaussianBlur(minus_frame, kernel_gauss, 0)
@@ -193,7 +195,6 @@ def action_recog():
                     if key == ord("q"):
                             break
 
-#______________________________________________________________MAIN PROGRAM___________________________________________________
 
 #________________________________________________________INITALIZING THE GUI WINDOW___________________________________________________________________
 
