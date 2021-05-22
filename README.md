@@ -100,12 +100,15 @@ The following features are integrated in the given code. Each of these features 
 ## User Guide
 
 
-## Installation Dependencies / Development Setup
+## Installation of Dependencies / Development Setup
+
+###Pre-requisites
+
 
 <div align="justify">
 
-The code is developed with Python ver. and `pip` ver. in Windows OS and is tested on Ubuntu OS.  
-The necessary packages and frameworks can be installed from the *Requirements* directory.  However, one can follow the below mentioned steps to do the same.
+The code is developed with Python ver. and `pip` ver. in Windows OS and is tested on Ubuntu OS. The necessary packages and frameworks can be installed from the *Requirements* directory.  However, one can follow the below mentioned steps to do the same.
+
 
 Installing the necessary packages and depencies is a pre-requisite.  The setup itself varies according to the OS, though the code is really the same.  Yet, the GUI is builded with different libraries in runtime, hence it results in differrent appearances of the same GUI accroding to OSs.
 
@@ -180,13 +183,19 @@ pip3 install pixellib --upgrade
 ```
 </div>
 
+###Using the Data Models
+
 <div align="justify">
+
+Instance segmentation is implemented with `PixelLib` by using Mask R-CNN model trained on coco dataset. The latest version of PixelLib supports custom training of object segmentation models using pretrained coco model.  Deeplab and Mask R-CNN models are available in the above mentioned *Data Models* directory. 
+
 There are two types of Deeplabv3+ models available for performing semantic segmentation with PixelLib:
 
 1. Deeplabv3+ model with xception as network backbone trained on Ade20k dataset, a dataset with 150 classes of objects.
 2. Deeplabv3+ model with xception as network backbone trained on Pascalvoc dataset, a dataset with 20 classes of objects. 
 
-Instance segmentation is implemented with PixelLib by using Mask R-CNN model trained on coco dataset. The latest version of PixelLib supports custom training of object segmentation models using pretrained coco model.  Deeplab and mask r-ccn models are available in the above mentioned data models directory and can be downloaded from [here](https://drive.google.com/drive/folders/1jtSFQN3W6_tkF5QVUYto5slp_wvntIQO?usp=sharing).
+
+The said data models can also be downloaded from [here](https://drive.google.com/drive/folders/1jtSFQN3W6_tkF5QVUYto5slp_wvntIQO?usp=sharing).
 
 </div>
 
