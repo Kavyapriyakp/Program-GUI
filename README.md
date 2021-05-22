@@ -95,7 +95,7 @@ The following features are integrated in the given code. Each of these features 
 
 <div align="justify">
 
-Start off by downloading the required data models from the *Data Models* directory.  Move the downloaded models to the parent directory.  Sample input and output are depcited in the *Input* and *Output* directories respectively.  These are provided for reference, one can expect a similar output for the given input.  The *Program* directory contains the Python code for the said GUI.  Move the file to the parent directory.  The *Requirements* directory contains a list of necessary packages.  Now execute the *GUI.py* file and voila!
+Start off by downloading the required models from the *Data Models* directory.  Move the downloaded models to the parent directory.  Sample input and output are depcited in the *Input* and *Output* directories respectively.  These are provided for reference, one can expect a similar output for the given input.  The *Program* directory contains the Python code for the said GUI.  Move the file to the parent directory.  The *Requirements* directory contains a list of necessary packages.  Now execute the *GUI.py* file and voila!
 
 </div>
 
