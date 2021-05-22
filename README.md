@@ -82,15 +82,25 @@ The following features are integrated in the given code. Each of these features 
 ├── Data Models<br>
 │   ├── List of data models.txt<br>
 ├── Input<br>
-│   ├── 01<br>
-│   ├── 02<br>
-│   ├── 03<br>
+│   ├── Frames<br>
+│   ├── ├── 01<br>
+│   ├── ├── 02<br>
+│   ├── ├── 03<br>
+│   ├── Videos<br>
+│   ├── ├── 01<br>
+│   ├── ├── 02<br>
+│   ├── ├── 03<br>
 ├── Logos<br>
 │   ├── DRDO.png<br>
 ├── Output<br>
-│   ├── 01<br>
-│   ├── 02<br>
-│   ├── 03<br>
+│   ├── Frames<br>
+│   ├── ├── 01<br>
+│   ├── ├── 02<br>
+│   ├── ├── 03<br>
+│   ├── Videos<br>
+│   ├── ├── 01<br>
+│   ├── ├── 02<br>
+│   ├── ├── 03<br>
 ├── Program<br>
 │   ├── GUI.py<br>
 ├── Requirements<br>
@@ -107,8 +117,28 @@ The following features are integrated in the given code. Each of these features 
 
 <div align="justify">
 
-The code is developed with Python ver. and `pip` ver. in Windows OS and is tested on Ubuntu OS. The necessary packages and frameworks can be installed from the *Requirements* directory.  However, one can follow the below mentioned steps to do the same.
+The code is developed with Python ver.3.8 and `pip` ver.21.0.1 in Windows OS and the same is tested on Ubuntu OS too. The necessary packages and frameworks can be installed from the *Requirements* directory.  However, one can follow the below mentioned steps to do the same.
 
+
+Check the version of Python on your system using:
+
+```Python
+python --version
+``` 
+
+If you wish to change / upgrade the version or install Python afresh, visit https://www.python.org/downloads/. 
+
+`pip` is a package-management system written in Python used to install and manage software packages. It connects to an online repository of public packages, called the Python Package Index. pip can also be configured to connect to other package repositories.  One can check `pip` version using:
+
+```Python
+pip --version
+```
+
+If you wish to install `pip` afresh:
+
+```Python
+python3 -m pip install --upgrade pip
+```
 
 Installing the necessary packages and depencies is a pre-requisite.  The setup itself varies according to the OS, though the code is really the same.  Yet, the GUI is builded with different libraries in runtime, hence it results in differrent appearances of the same GUI accroding to OSs.
 
@@ -117,21 +147,40 @@ Installing the necessary packages and depencies is a pre-requisite.  The setup i
 <details>
 <summary>Windows OS</summary>
 
-```Python
-pip install tk
-```
+---
+
+The `tkinter` package (“Tk interface”) is the standard Python interface to the Tk GUI toolkit. The `Tk interface` is located in a binary module named `_tkinter`. It is usually a shared library (or DLL), but might in some cases be statically linked with the Python interpreter.  The `cffi` module is used to invoke `callback` methods inside the program.
 
 ```Python
+pip install tk
 python3 -m pip install cffi
 ```
 
+`Pillow` is a Python Imaging Library (`PIL`), which adds support for opening, manipulating, and saving images. The current version identifies and reads a large number of formats.  It supports wide variety of images such as “jpeg”, “png”, “bmp”, “gif”, “ppm”, “tiff”.
+
 ```Python
-python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade Pillow
 ```
 
+`OpenCV` is a huge open-source library for computer vision, machine learning, and image processing. `OpenCV` supports a wide variety of programming languages like Python, C++, Java, etc. It can process images and videos to identify objects, faces, and so on. The library has more than 2500 optimized algorithms, which includes a comprehensive set of both classic and state-of-the-art computer vision and machine learning algorithms.
+
+
 ```Python
 pip install opencv-python
+```
+
+The GUI code supports `tensorflow`'s version (2.0 - 2.4.1). Install `tensorflow` and the latest version of `Pixellib` with:
+
+```Python
+pip3 install tensorflow
+pip3 install pixellib --upgrade
+```
+
+If you have have a PC enabled GPU, install *tensorflow--gpu*'s version that is compatible with the cuda installed on your pc:
+
+
+```Python
+pip3 install tensorflow--gpu
 ```
 
 </details>
@@ -140,32 +189,36 @@ pip install opencv-python
 <details>
 <summary>Ubuntu OS</summary>
 
+---
+
+The `tkinter` package (“Tk interface”) is the standard Python interface to the Tk GUI toolkit. The `Tk interface` is located in a binary module named `_tkinter`. It is usually a shared library (or DLL), but might in some cases be statically linked with the Python interpreter.  The `cffi` module is used to invoke `callback` methods inside the program.
+
 ```Python
 apt-get install python-tk 
 sudo apt-get install python-setuptools
-```
-
-```Python
 sudo apt-get install -y python-cffi
 ```
+
+`Pillow` is a Python Imaging Library (`PIL`), which adds support for opening, manipulating, and saving images. The current version identifies and reads a large number of formats.  It supports wide variety of images such as “jpeg”, “png”, “bmp”, “gif”, “ppm”, “tiff”.
 
 ```Python
 python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade Pillow
 ```
 
+
+`OpenCV` is a huge open-source library for computer vision, machine learning, and image processing. `OpenCV` supports a wide variety of programming languages like Python, C++, Java, etc. It can process images and videos to identify objects, faces, and so on. The library has more than 2500 optimized algorithms, which includes a comprehensive set of both classic and state-of-the-art computer vision and machine learning algorithms.
+
+
 ```Python
 sudo apt-get install python3-opencv
 ```
-
-
-</details>
-
-
-The GUI code supports *tensorflow*'s version (2.0 - 2.4.1). Install *tensorflow* using:
+ 
+The GUI code supports `tensorflow`'s version (2.0 - 2.4.1). Install `tensorflow` and the latest version of `Pixellib` with:
 
 ```Python
 pip3 install tensorflow
+pip3 install pixellib --upgrade
 ```
 
 If you have have a PC enabled GPU, install *tensorflow--gpu*'s version that is compatible with the cuda installed on your pc:
@@ -176,11 +229,10 @@ pip3 install tensorflow--gpu
 ```
 
 
-Install the latest version of *Pixellib* with:
+</details>
 
-```Python
-pip3 install pixellib --upgrade
-```
+
+
 </div>
 
 
@@ -308,6 +360,27 @@ contours, hierarchy = findContours(minus_Matrix.copy(), RETR_TREE, CHAIN_APPROX_
 rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 ```		
 
+
+Futher explanation on the below mentioned code snippet can be found [here](https://github.com/Kavyapriyakp/PixelLib/tree/master/Tutorials).
+
+
+```Python
+
+change_bg.blur_camera(capture, frames_per_second=10,extreme = True, show_frames = True, frame_name = "frame", output_video_name="bgblur_out.mp4")
+
+
+change_bg.color_camera(capture, frames_per_second=10,colors = (0, 128, 0), show_frames = True, frame_name = "frame", output_video_name="output_video.mp4")
+
+    
+segment_video = instance_segmentation(infer_speed = "rapid")            #setting_the_speed
+segment_video.load_model("mask_rcnn_coco.h5")                           #loading_the_datamodel
+segment_video.process_camera(capture, frames_per_second= 10, show_bboxes = True, show_frames= True,frame_name= "frame", output_video_name="inst_seg_out.mp4")
+
+segment_video.load_ade20k_model("deeplabv3_xception65_ade20k.h5")       #loading_the_datamodel
+segment_video.process_camera_ade20k(capture, overlay=True, frames_per_second= 10, output_video_name="sem_seg_out.mp4", show_frames= True,frame_name= "frame")
+
+```	
+
 </details>
 
 
@@ -323,20 +396,37 @@ window.resizable(0,0)
 window.geometry('850x600')
 ```	
 
+`Tk()` method is used to create and initilize the GUI window. 
+`configure()` method is used to set a `background` (colour)  and a number of other parameters to the window.
+`title()` method is used to set a name to the window.  Its takes a string as an argument.
+`resizable()` method is used to the window to change it's size according to the user's need or prohibit resizing of the window.
+`geometry()` method is used to set dimensions to the window. It takes the width and height as argurments. 
+
 ```Python
 clicked  = StringVar()
 chkValue = BooleanVar()
 ```	
 
+Some widgets (like text entry widgets, radio buttons and so on) can be connected directly to application variables by using special options: variable, textvariable, onvalue, offvalue, and value. This connection works both ways: if the variable changes for any reason, the widget it's connected to will be updated to reflect the new value. 
+`StringVar()` - Holds a string; with default value "" or NULL
+`BooleanVar()` - holds a boolean, returns 0 for False and 1 for True
+
+
 ```Python
 window.mainloop()
 ```	
+The `mainloop()` method is used when the application is ready to run. It is an infinite loop used to run the application, wait for an event to occur and process the event as long as the window is not closed.
+
+Many other `tkinter` widgets such as `CheckButton`, `Button`, `Combobox` and various other methods suuch as `Label()`, `.place()`, `.set()`, `LabelFrame()` are used in this code.  
+
+More details about `tkinter` can be found in [GeeksforGeeks](https://www.geeksforgeeks.org/python-gui-tkinter/).
 
 </details>
 
-## API Reference
 
 ## Work under Progress
+
+### API Reference
 
 ## Credit / Contributors & Owners
 
@@ -345,5 +435,8 @@ window.mainloop()
 1. Bonlime, Keras implementation of Deeplab v3+ with pretrained weights  https://github.com/bonlime/keras-deeplab-v3-plus
 2. Mask R-CNN code made compatible with tensorflow 2.0, https://github.com/tomgross/Mask_RCNN/tree/tensorflow-2.0
 3. TensorFlow DeepLab Model Zoo https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/model_zoo.md
+4. Pixellib - Python Library for Real-time Segmentation https://github.com/ayoolaolafenwa/PixelLib 
+5. Bo Yang, Mingyue Tang, Shaohui Chen, Gang Wang, Yan Tan & Bijun Li “A vehicle tracking algorithm combining detector and tracker” EURASIP Journal on Image and Video Processing volume 2020, Article number: 17 (2020)
+
 
 [Go to Top](#section_name)
