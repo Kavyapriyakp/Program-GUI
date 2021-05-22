@@ -387,7 +387,9 @@ segment_video.process_camera_ade20k(capture, overlay=True, frames_per_second= 10
 <details>
 <summary>Creating the GUI</summary>
 
+
 <div align="justify">
+
 
 ```Python
 window=Tk()
