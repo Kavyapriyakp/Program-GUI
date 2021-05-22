@@ -124,6 +124,12 @@ If you wish to install `pip` afresh:
 python3 -m pip install --upgrade pip
 ```
 
+or
+
+```Python
+sudo apt install python3-pip
+```
+
 Installing the necessary packages and depencies is a pre-requisite.  The setup itself varies according to the OS, though the code is really the same.  Yet, the GUI is builded with different libraries in runtime, hence it results in differrent appearances of the same GUI accroding to OSs.
 
 
@@ -166,6 +172,22 @@ If you have have a PC enabled GPU, install *tensorflow--gpu*'s version that is c
 ```Python
 pip3 install tensorflow--gpu
 ```
+
+`NumPy` is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.  By reading the image as a `NumPy` array ndarray, various image processing can be performed using NumPy functions.
+
+
+```Python
+pip3 install numpy
+```
+
+
+`Imutils` are a series of convenience functions to make basic image processing functions such as translation, rotation, resizing, skeletonization, and displaying Matplotlib images easier with `OpenCV` in Python.
+
+
+```Python
+pip3 install imutils
+```
+
 
 </details>
 
@@ -211,6 +233,22 @@ If you have have a PC enabled GPU, install *tensorflow--gpu*'s version that is c
 ```Python
 pip3 install tensorflow--gpu
 ```
+
+`NumPy` is a library for the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.  By reading the image as a `NumPy` array ndarray, various image processing can be performed using NumPy functions.
+
+
+```Python
+pip3 install numpy
+```
+
+
+`Imutils` are a series of convenience functions to make basic image processing functions such as translation, rotation, resizing, skeletonization, and displaying Matplotlib images easier with `OpenCV` in Python.
+
+
+```Python
+pip3 install imutils
+```
+
 
 
 </details>
