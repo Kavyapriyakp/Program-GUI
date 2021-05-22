@@ -80,31 +80,15 @@ The following features are integrated in the given code. Each of these features 
 ## Project Structure
 
 ├── Data Models<br>
-│   ├── List of data models.txt<br>
 ├── Input<br>
 │   ├── Frames<br>
-│   ├── ├── 01<br>
-│   ├── ├── 02<br>
-│   ├── ├── 03<br>
 │   ├── Videos<br>
-│   ├── ├── 01<br>
-│   ├── ├── 02<br>
-│   ├── ├── 03<br>
 ├── Logos<br>
-│   ├── DRDO.png<br>
 ├── Output<br>
 │   ├── Frames<br>
-│   ├── ├── 01<br>
-│   ├── ├── 02<br>
-│   ├── ├── 03<br>
 │   ├── Videos<br>
-│   ├── ├── 01<br>
-│   ├── ├── 02<br>
-│   ├── ├── 03<br>
 ├── Program<br>
-│   ├── GUI.py<br>
 ├── Requirements<br>
-│   ├── requirements.txt<br>
 └── README.md<br>
 
 ## User Guide
