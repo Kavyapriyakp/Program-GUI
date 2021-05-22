@@ -100,10 +100,64 @@ The following features are integrated in the given code. Each of these features 
 ## User Guide
 
 
-## Installation & Dependencies / Development Setup
-
+## Installation Dependencies / Development Setup
 
 <div align="justify">
+
+The code is developed with Python ver. and `pip` ver. in Windows OS and is tested on Ubuntu OS.  
+The necessary packages and frameworks can be installed from the *Requirements* directory.  However, one can follow the below mentioned steps to do the same.
+
+Installing the necessary packages and depencies is a pre-requisite.  The setup itself varies according to the OS, though the code is really the same.  Yet, the GUI is builded with different libraries in runtime, hence it results in differrent appearances of the same GUI accroding to OSs.
+
+
+
+<details>
+<summary>Windows OS</summary>
+
+```Python
+pip install tk
+```
+
+```Python
+python3 -m pip install cffi
+```
+
+```Python
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade Pillow
+```
+
+```Python
+pip install opencv-python
+```
+
+</details>
+
+
+<details>
+<summary>Ubuntu OS</summary>
+
+```Python
+apt-get install python-tk 
+sudo apt-get install python-setuptools
+```
+
+```Python
+sudo apt-get install -y python-cffi
+```
+
+```Python
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade Pillow
+```
+
+```Python
+sudo apt-get install python3-opencv
+```
+
+
+</details>
+
 
 The GUI code supports *tensorflow*'s version (2.0 - 2.4.1). Install *tensorflow* using:
 
