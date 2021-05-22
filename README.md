@@ -6,7 +6,7 @@ A GUI model of a software prototype with latest features developed to aid survei
 
 ## Project Title
 <div align="justify">
-The developed GUI corresponds to the project titled "Requirement of real-time compensation for turbulence and detecting moving objects", developed in 2020-21.
+
 </div>
 
 ## About
