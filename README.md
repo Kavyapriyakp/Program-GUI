@@ -6,7 +6,7 @@ A GUI model of a software prototype with latest features developed to aid survei
 
 ## Project Title
 <div align="justify">
-
+The developed GUI corresponds to the project titled "Requirement of real-time compensation for turbulence and detecting moving objects", developed in 2020-21.
 </div>
 
 ## About
@@ -419,12 +419,11 @@ change_bg.blur_camera(capture, frames_per_second=10,extreme = True, show_frames 
 change_bg.color_camera(capture, frames_per_second=10,colors = (0, 128, 0), show_frames = True, frame_name = "frame", output_video_name="output_video.mp4")
 
     
-segment_video = instance_segmentation(infer_speed = "rapid")            #setting_the_speed
 segment_video.load_model("mask_rcnn_coco.h5")                           #loading_the_datamodel
-segment_video.process_camera(capture, frames_per_second= 10, show_bboxes = True, show_frames= True,frame_name= "frame", output_video_name="inst_seg_out.mp4")
+segment_video.process_camera(capture, frames_per_second= 10, show_bboxes = True, show_frames= True,frame_name= "frame", output_video_name="inst_out.mp4")
 
 segment_video.load_ade20k_model("deeplabv3_xception65_ade20k.h5")       #loading_the_datamodel
-segment_video.process_camera_ade20k(capture, overlay=True, frames_per_second= 10, output_video_name="sem_seg_out.mp4", show_frames= True,frame_name= "frame")
+segment_video.process_camera_ade20k(capture, overlay=True, frames_per_second= 10, output_video_name="sem_out.mp4", show_frames= True,frame_name= "frame")
 ```	
 
 The above mentioned code snipped is used to blur the background, assign colour to it, perform instance and segmentation on the given input.Futher explanation on the code snippet can be found [here](https://github.com/Kavyapriyakp/PixelLib/tree/master/Tutorials).
