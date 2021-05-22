@@ -387,6 +387,7 @@ segment_video.process_camera_ade20k(capture, overlay=True, frames_per_second= 10
 <details>
 <summary>Creating the GUI</summary>
 
+<div align="center">
 
 ```Python
 window=Tk()
@@ -417,9 +418,9 @@ window.mainloop()
 ```	
 The `mainloop()` method is used when the application is ready to run. It is an infinite loop used to run the application, wait for an event to occur and process the event as long as the window is not closed.
 
-Many other `tkinter` widgets such as `CheckButton`, `Button`, `Combobox` and various other methods suuch as `Label()`, `.place()`, `.set()`, `LabelFrame()` are used in this code.  
+Many other `tkinter` widgets such as `CheckButton`, `Button`, `Combobox` and various other methods suuch as `Label()`, `.place()`, `.set()`, `LabelFrame()` are used in this code.  More details about `tkinter` can be found in [GeeksforGeeks](https://www.geeksforgeeks.org/python-gui-tkinter/).
 
-More details about `tkinter` can be found in [GeeksforGeeks](https://www.geeksforgeeks.org/python-gui-tkinter/).
+</div>
 
 </details>
 
