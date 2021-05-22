@@ -93,6 +93,11 @@ The following features are integrated in the given code. Each of these features 
 
 ## User Guide
 
+<div align="justify">
+
+Start off by downloading the required data models from the *Data Models* directory.  Move the downloaded models to the parent directory.  Sample input and output are depcited in the *Input* and *Output* directories respectively.  These are provided for reference, one can expect a similar output for the given input.  The *Logos* directory contains the images of required logos for the GUI.  Move the downloaded logos into the parent directory.  The *Program* directory contains the Python code for the said GUI.  Move the file to the parent directory.  The *Requirements* directory contains a list of necessary packages.  Now execute the *GUI.py* file and voila!
+
+</div>
 
 ## Installation of Dependencies / Development Setup
 
@@ -101,10 +106,16 @@ The following features are integrated in the given code. Each of these features 
 
 <div align="justify">
 
-The code is developed with Python ver.3.8 and `pip` ver.21.0.1 in Windows OS and the same is tested on Ubuntu OS too. The necessary packages and frameworks can be installed from the *Requirements* directory.  However, one can follow the below mentioned steps to do the same.
+The code is developed with Python ver.3.8 and `pip` ver.21.0.1 in Windows OS and the same is tested on Ubuntu OS too. The necessary packages and frameworks can be installed from the *Requirements* directory.  
+
+```Python
+pip install -r requirements.txt
+``` 
+
+However, one can follow the below mentioned steps in case of any errors.
 
 
-Check the version of Python on your system using:
+Firstly, check the version of Python on your system using:
 
 ```Python
 python --version
