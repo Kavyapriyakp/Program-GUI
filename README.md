@@ -255,23 +255,11 @@ The said data models can also be downloaded from [here](https://drive.google.com
 
 ## Code Example
 
-The following table mentions all the user-defined functions and it's corresponding description.
-
-| Method                  | Description                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `cameradetect()`          | detects if any surveillance device is connected, else throws error                                     |
-| `edgedetect()`            | detects and marks boundaries of objects within images                                                  |
-| `backgroundsubtraction()` | extracs foreground and background of image                                                             |
-| `bgblur()`                | applies a low-pass filter to blur outlier pixles                                                       |
-| `bgcolour()`              | sets a colour to outlier pixels                                                                        |
-| `inst_seg()`             | detects distinct instances of objects of interest in the image                                         |
-| `sem_seg()`              | detecs objects of different class of interest in the image                                             |
-| `drawRectangle(frame, minus_frame)`         | - encloses the moving object within a bounding<br>- takes 2 consecutive images / frames as arguments |
-| `objdetect()`             | - detects moving objects<br>- draws bouding box by calling `drawRectangle` method|
-
-
 <details>
 <summary>Reading video input and extracting frames</summary>
+
+---
+
 
 ```Python
 cap = cv2.VideoCapture(0)
@@ -279,22 +267,34 @@ cap = cv2.VideoCapture('<file_path>')
 ```
 <div align="justify">
 
-`cap` is the object on `VideoCapture()` method to capture a video. It accepts either the device index or the name of a video file. 
-
+`cap` is the object on `VideoCapture()` method to capture a video. It accepts either the device index or the name of a video file as argument. 
 The `cap.read()` returns a boolean value.  It will return True, if the frame is read correctly.
 </div>
+
 
 ```Python
 while(1): 
         ret, frame = cap.read()
 ```
+
 <div align="justify">
-This code initiates an infinite loop (to be broken later by a break statement), where we have ret and frame being defined as the cap.read(). Basically, ret is a boolean regarding whether or not there was a return at all, at the frame is each frame that is returned. If there is no frame, you wont get an error, you will get None.
+
+This code initiates an infinite loop (to be broken later by a `break` statement), where `ret` and `frame` are being defined by the `cap.read()` method. `ret` is a boolean regarding whether or not there was a return at all.  Error is thrown if there is no frame.
+
+
 </div>
+
 
 ```Python
 cv2.imshow('Input',frame)
 ```
+
+<div align="justify">
+
+`cv2.imshow(window_name, image)` method is used to display an image in a window. The window automatically fits to the image size.
+`window_name` argument is a string representing the name of the window in which image to be displayed. 
+`image` argument is the image that is to be displayed.
+
 
 ```Python
 k = cv2.waitKey(5) & 0xFF
@@ -302,10 +302,22 @@ if k == ord("q"):
     break
 ```
 
+The `waitKey(int)` method returns -1 when no input is made. As soon the event occurs it returns a 32-bit integer. It takes an integer argument, that is time in milliseconds (0 – wait indefinitely).
+ `0xFF` represents a binary `11111111`, a 8 bit binary.  Since 8 bits are required to represent a character, `AND` operation is performed on `waitKey(int)` to `0xFF`. As a result, an integer is obtained below 255.
+`ord(char)` returns the ASCII value of the character which would be pf a value not more than 255. Hence by comparing the integer to the `ord(char)` value, a check of whether a key is pressed for the event to break the loop is done.
+
+
 ```Python
 cap.release() 
 cv2.destroyAllWindows()
 ```
+
+The `cap.release()` method closes video file or releases the connnect video capturing device.
+The `cv2.destroyAllWindows()` method destroys all the windows that has been created. To
+destroy any specific window, `cv2.destroyWindow()` is used where the exact window name is passed as argument.
+
+
+</div>
 
 </details>
 
@@ -313,28 +325,31 @@ cv2.destroyAllWindows()
 <details>
 <summary>Using in-built Python functions</summary>
 
+---
+
+<div align="justify">
+
+
 ```Python
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV) 
 ```
+The `cv2. cvtColor(input_image, flag)` method is used for colour conversion where flag determines the type of conversion. For BGR to Gray conversion, the flag `cv2.COLOR_BGR2GRAY` is used. Similarly for BGR to HSV, the flag `cv2.COLOR_BGR2HSV` is used.
+
 
 ```Python
 lower_red = np.array([30,150,50]) 
-upper_red = np.array([255,255,180]) 
-mask = cv2.inRange(hsv, lower_red, upper_red) 
-res = cv2.bitwise_and(frame,frame, mask= mask)  
+upper_red = np.array([255,255,180])
 ```
+
+The `np.array([x,y,z])` method represents a grid of grid of values of the same type, and is indexed by a tuple of nonnegative integers. It takes a single argument as a tuple containing the number of dimensions (rank of the array) and the shape of an array (integers giving the size of the array along each dimension).
+
 
 ```Python
 edges = cv2.Canny(frame,100,200)
 ```
 
-```Python
-fgbg = cv2.createBackgroundSubtractorMOG2()
-```
+The `cv.Canny(image, threshold1, threshold2, apertureSize, L2gradient)` method of the `cv2` library is used to detect edges in an image.  It can take upto 5 arguments: input image of n-dimensional array, high threshold value of intensity gradient, low threshold value of intensity gradient, order of matrix, a boolean type variable; of which the latter two are optional.
 
-```Python
-fgmask = fgbg.apply(frame)
-```
 
 ```Python
 kernel_d = np.ones((3,3), np.uint8)
@@ -359,9 +374,8 @@ contours, hierarchy = findContours(minus_Matrix.copy(), RETR_TREE, CHAIN_APPROX_
 (x, y, w, h) = boundingRect(c)	
 rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 ```		
-
-
-Futher explanation on the below mentioned code snippet can be found [here](https://github.com/Kavyapriyakp/PixelLib/tree/master/Tutorials).
+The `boundingRect()` method of OpenCV is used to draw an approximate rectangle around the image. It is used mainly to highlight the region of interest after obtaining contours from an image.  It takes the contours of the image as argument.
+The `rectangle()` method is used to draw a rectangle and takes many arguments like image on which it has to be drawn, parameters for dimensionsleft, top, right, bottom, width, height, line thickness and so on.
 
 
 ```Python
@@ -378,15 +392,19 @@ segment_video.process_camera(capture, frames_per_second= 10, show_bboxes = True,
 
 segment_video.load_ade20k_model("deeplabv3_xception65_ade20k.h5")       #loading_the_datamodel
 segment_video.process_camera_ade20k(capture, overlay=True, frames_per_second= 10, output_video_name="sem_seg_out.mp4", show_frames= True,frame_name= "frame")
-
 ```	
 
+The above mentioned code snipped is used to blur the background, assign colour to it, perform instance and segmentation on the given input.Futher explanation on the code snippet can be found [here](https://github.com/Kavyapriyakp/PixelLib/tree/master/Tutorials).
+
+
+<div>
 </details>
 
 
 <details>
 <summary>Creating the GUI</summary>
 
+---
 
 <div align="justify">
 
@@ -425,6 +443,20 @@ Many other `tkinter` widgets such as `CheckButton`, `Button`, `Combobox` and var
 </div>
 
 </details>
+
+The following table mentions all the user-defined functions and it's corresponding description.
+
+| Method                  | Description                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `cameradetect()`          | detects if any surveillance device is connected, else throws error                                     |
+| `edgedetect()`            | detects and marks boundaries of objects within images                                                  |
+| `backgroundsubtraction()` | extracs foreground and background of image                                                             |
+| `bgblur()`                | applies a low-pass filter to blur outlier pixles                                                       |
+| `bgcolour()`              | sets a colour to outlier pixels                                                                        |
+| `inst_seg()`             | detects distinct instances of objects of interest in the image                                         |
+| `sem_seg()`              | detecs objects of different class of interest in the image                                             |
+| `drawRectangle(frame, minus_frame)`         | - encloses the moving object within a bounding<br>- takes 2 consecutive images / frames as arguments |
+| `objdetect()`             | - detects moving objects<br>- draws bouding box by calling `drawRectangle` method|
 
 
 ## Work under Progress
