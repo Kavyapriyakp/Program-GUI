@@ -4,6 +4,7 @@
 A GUI model of a software prototype with latest features developed to aid surveillance systems' monitoring.
 </div>
 
+
 ## Build Status
 
 <img src="https://img.shields.io/badge/build-passing-brightgreen"/> <img src="https://img.shields.io/badge/code-latest-orange"/> <img src="https://img.shields.io/badge/langugage-python-blue"/>
@@ -137,7 +138,6 @@ sudo apt install python3-pip
 ```
 
 Installing the necessary packages and depencies is a pre-requisite.  The setup itself varies according to the OS, though the code is really the same.  Yet, the GUI is builded with different libraries in runtime, hence it results in differrent appearances of the same GUI accroding to OSs.
-
 
 
 <details>
@@ -292,11 +292,12 @@ The said data models can also be downloaded from [here](https://drive.google.com
 ```Python
 cap = cv2.VideoCapture(0)
 cap = cv2.VideoCapture('<file_path>')
+cap = cv2.VideoCapture('rtsp://username:password@ip')
 ```
 <div align="justify">
 
 `cap` is the object on `VideoCapture()` method to capture a video. It accepts either the device index or the name of a video file as argument. 
-The `cap.read()` returns a boolean value.  It will return True, if the frame is read correctly.
+
 </div>
 
 
@@ -307,7 +308,7 @@ while(1):
 
 <div align="justify">
 
-This code initiates an infinite loop (to be broken later by a `break` statement), where `ret` and `frame` are being defined by the `cap.read()` method. `ret` is a boolean regarding whether or not there was a return at all.  Error is thrown if there is no frame.
+The `cap.read()` returns a boolean value.  It will return True, if the frame is read correctly.  This code initiates an infinite loop (to be broken later by a `break` statement), where `ret` and `frame` are being defined by the `cap.read()` method. `ret` is a boolean regarding whether or not there was a return at all.  Error is thrown if there is no frame.
 
 
 </div>
