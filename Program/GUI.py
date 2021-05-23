@@ -14,14 +14,13 @@ import pixellib
 from pixellib.instance import instance_segmentation
 from pixellib.tune_bg import alter_bg
 from pixellib.semantic import semantic_segmentation
-import numpy as np
 import argparse
 import imutils
 
 #______________________________________________________________USER-DEFINED FUNCTIONS___________________________________________________________________
 
 def cameradetect():
-    cap = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64') 
+    cap = cv2.VideoCapture(0) 
     while(1): 
         ret, frame = cap.read() 
         cv2.imshow('Input',frame)   
@@ -33,7 +32,7 @@ def cameradetect():
 
 
 def edgedetect():
-    cap = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64') 
+    cap = cv2.VideoCapture(0) 
     while(1): 
         ret, frame = cap.read() 
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)  
@@ -52,7 +51,7 @@ def edgedetect():
 
 
 def backgroundsubtraction():
-    cap = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64') 
+    cap = cv2.VideoCapture(0) 
     fgbg = cv2.createBackgroundSubtractorMOG2() 
         
     while(1): 
@@ -67,33 +66,34 @@ def backgroundsubtraction():
     cap.release() 
     cv2.destroyAllWindows()
 
+
 change_bg = alter_bg(model_type = "pb")                     #loading_data_model
 change_bg.load_pascalvoc_model("xception_pascalvoc.pb")     #loading_data_model
 
 
 def bgblur():
-    capture = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64')
+    capture = cv2.VideoCapture(0)
     change_bg.blur_camera(capture, frames_per_second=10,extreme = True, show_frames = True, frame_name = "frame", output_video_name="bgblur_out.mp4")
 
 
 def bgcolour():
-    capture = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64')
+    capture = cv2.VideoCapture(0)
     change_bg.color_camera(capture, frames_per_second=10,colors = (0, 128, 0), show_frames = True, frame_name = "frame", output_video_name="output_video.mp4")
 
     
 def inst_seg():
-    capture = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64')
-    segment_video = instance_segmentation(infer_speed = "rapid")
-    segment_video.load_model("mask_rcnn_coco.h5")
+    capture = cv2.VideoCapture(0)
+    segment_video = instance_segmentation(infer_speed = "rapid")            #setting_the_speed
+    segment_video.load_model("mask_rcnn_coco.h5")                           #loading_the_datamodel
     segment_video.process_camera(capture, frames_per_second= 10, show_bboxes = True, show_frames= True,frame_name= "frame", output_video_name="inst_seg_out.mp4")
 
 def sem_seg():
-    capture = cv2.VideoCapture('rtsp://admin:Password@123@192.168.1.64')
+    capture = cv2.VideoCapture(0)
     segment_video = semantic_segmentation()
-    segment_video.load_ade20k_model("deeplabv3_xception65_ade20k.h5")
+    segment_video.load_ade20k_model("deeplabv3_xception65_ade20k.h5")       #loading_the_datamodel
     segment_video.process_camera_ade20k(capture, overlay=True, frames_per_second= 10, output_video_name="sem_seg_out.mp4", show_frames= True,frame_name= "frame")
 
-    
+
 kernel_d = np.ones((3,3), np.uint8)
 kernel_e = np.ones((3,3), np.uint8)
 kernel_gauss = (3,3)
@@ -125,7 +125,7 @@ def drawRectangle(frame, minus_frame):
 	imshow('result', frame)
 
 def objdetect():
-	capture = VideoCapture('rtsp://admin:Password@123@192.168.1.64');
+	capture = VideoCapture(0);
 	width = (int)( capture.get( CAP_PROP_FRAME_WIDTH )/fac )
 	length = (int)( capture.get( CAP_PROP_FRAME_HEIGHT )/fac )
 	while(1):
@@ -155,55 +155,15 @@ def objdetect():
 		capture.release() 
 		cv2.destroyAllWindows()
 
-def action_recog():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("-m", "--model",help="path to trained human activity recognition model")
-    ap.add_argument("-c", "--classes",help="path to class labels file")
-    ap.add_argument("-i", "--input", type=str, default="",
-            help="optional path to video file")
-    args = vars(ap.parse_args())
-    CLASSES = open(args["classes"] if args["classes"] else "action_recognition_kinetics.txt").read().strip().split("\n")
-    SAMPLE_DURATION = 16
-    SAMPLE_SIZE = 112
-    print("[INFO] loading human activity recognition model...")
-    net = cv2.dnn.readNet(args["model"] if args["model"] else "resnet-34_kinetics.onnx")
-    print("[INFO] accessing video stream...")
-    vs = cv2.VideoCapture(args["input"] if args["input"] else 0)
-    while True:
-            frames = []
-            for i in range(0, SAMPLE_DURATION):
-                    (grabbed, frame) = vs.read()
-                    if not grabbed:
-                            print("[INFO] no frame read from stream - exiting")
-                            sys.exit(0)
-                    frame = imutils.resize(frame, width=400)
-                    frames.append(frame)
-            blob = cv2.dnn.blobFromImages(frames, 1.0,
-                    (SAMPLE_SIZE, SAMPLE_SIZE), (114.7748, 107.7354, 99.4750),
-                    swapRB=True, crop=True)
-            blob = np.transpose(blob, (1, 0, 2, 3))
-            blob = np.expand_dims(blob, axis=0)
-            net.setInput(blob)
-            outputs = net.forward()
-            label = CLASSES[np.argmax(outputs)]
-            for frame in frames:
-                    cv2.rectangle(frame, (0, 0), (300, 40), (0, 0, 0), -1)
-                    cv2.putText(frame, label, (10, 25), cv2.FONT_HERSHEY_SIMPLEX,
-                            0.8, (255, 255, 255), 2)
-                    cv2.imshow("Activity Recognition", frame)
-                    key = cv2.waitKey(1) & 0xFF
-                    if key == ord("q"):
-                            break
-
 
 #________________________________________________________INITALIZING THE GUI WINDOW___________________________________________________________________
 
    
 window=Tk()
 window.configure(background="grey64");
-window.title("Border Surveillance System")
+window.title("Surveillance System")
 window.resizable(0,0)
-window.geometry('850x600')
+window.geometry('850x500')
 
 #____________________________________________SETTING VARIBALES TO CHECK STATE OF BUTTON (CHECKED OR UNCHECKED)___________________________________________________________________
 
@@ -222,7 +182,7 @@ chkValue8 = BooleanVar()
 #____________________________________________________________CREATING BUTTONS_______________________________________________________________
 
 
-title = Label(window, text = "CARS-SRMIST",font=("Times New Roman",20, 'bold'),fg="black",bg="grey64").place(x= 350, y=10)
+title = Label(window, text = "Survillance System Monitor",font=("Times New Roman",20, 'bold'),fg="black",bg="grey64").place(x= 252, y=10)
 t1=Label(window,text = "Input",font=("Times New Roman",16, 'bold'),fg="black",bg="grey64").place(x=150,y=80)
 b1=Button(window,text = "Browse",font=("Times New Roman",12, 'bold'),state=DISABLED).place(x=50, y=130)
 b2=Button(window,text = "Live Video",font=("Times New Roman",12, 'bold'),command=cameradetect).place(x=200, y=130)
@@ -240,27 +200,23 @@ t2= Label(window,text = "Modules",font=("Times New Roman",16, 'bold'),fg="black"
 
 
 C1=Checkbutton(window,text = "Object Focus",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue1,command=bgblur).place(x=400,y=120)
-C2=Checkbutton(window,text = "Background Colour",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue2,command=bgcolour).place(x=400,y=150)
+C2=Checkbutton(window,text = "Background Colour",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue2,command=bgcolor).place(x=400,y=150)
 C3=Checkbutton(window,text="Background Subtraction",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue3,command=backgroundsubtraction).place(x=400,y=180)
 C4=Checkbutton(window,text="Edge Detection",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue4,command=edgedetect).place(x=400,y=210)
-C5=Checkbutton(window,text="Object Detection",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue5,command=objdetect).place(x=400,y=240)
 C6=Checkbutton(window,text="Instance Segmentation",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue6,command=inst_seg).place(x=600,y=120)
 C7=Checkbutton(window,text="Semantic Segmentation",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue7,command=sem_seg).place(x=600,y=150)
-C8=Checkbutton(window,text="Action Detection",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue8,command=action_recog).place(x=600,y=180)
-C9=Checkbutton(window,text="-",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black").place(x=600,y=210)
-C10=Checkbutton(window,text="-",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black").place(x=600,y=240)
-b4=Button(window,text = "Execute",font=("Times New Roman",12, 'bold')).place(x=550, y=300)
+C8=Checkbutton(window,text="Intruder Alert",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue8,command=edgedetect).place(x=600,y=180)
+C9=Checkbutton(window,text="Object Detection",font=("Times New Roman",12, 'bold'),background="grey64",foreground="black",var=chkValue5,command=objdetect).place(x=600,y=210)
+b4=Button(window,text = "Execute",font=("Times New Roman",12, 'bold'),state=DISABLED).place(x=550, y=300)
 parameter=Button(window,text = "Parameters",font=("Times New Roman",14, 'bold'),state=DISABLED).place(x=380, y=395)
 
 
 #________________________________________________________FOOTER OF THE GUI WINDOW___________________________________________________________________
 
 
-photo = PhotoImage(file="./DRDO.png")
-frame=LabelFrame(window,width=850, height=150,fg="black",bg="aqua").place(x=0,y=450)
-foot=Label(frame,text = "Developed For",font=("Times New Roman",13, 'bold'),fg="black",bg="aqua").place(x=30,y=460)
-imgLabel = Label(frame,image=photo,bg="aqua").place(x=40, y=490)
-textLabel =Label(frame,text = "  Instruments Research & \n Development Establishment",font=("Times New Roman",11, 'bold'),fg="black",bg="aqua").place(x=135,y=510)
+
+frame=LabelFrame(window,width=850, height=50,fg="black",bg="aqua").place(x=0,y=450)
+foot=Label(frame,text = "Developed on & Supports - Python 3.8.x",font=("Times New Roman",11),fg="black",bg="aqua").place(x=600,y=465)
 window.mainloop()
 
 #_____________________________________________________________END OF PROGRAM___________________________________________________________________
