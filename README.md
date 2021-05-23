@@ -15,7 +15,18 @@ A GUI model of a software prototype with latest features developed to aid survei
 <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/> <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"/>
 
 
-## Screenshot / GIF / Video
+## Screenshot
+
+<img src="https://raw.githubusercontent.com/Kavyapriyakp/Program-GUI/main/Screenshots/01.PNG" alt="idle" style="height: 200px; width:300px;"/>
+
+
+
+<img src="https://raw.githubusercontent.com/Kavyapriyakp/Program-GUI/main/Screenshots/02.jpeg" alt="selecting a connected device" style="height: 200px; width:300px;"/>
+
+
+
+<img src="https://raw.githubusercontent.com/Kavyapriyakp/Program-GUI/main/Screenshots/03.PNG" alt="check box functionality" style="height: 200px; width:300px;"/>
+
 
 ## Hardware and Software Requirements
 
