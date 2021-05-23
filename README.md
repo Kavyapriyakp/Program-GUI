@@ -511,9 +511,11 @@ The following table mentions all the user-defined functions and it's correspondi
 
 ## Work under Progress
 
-### API Reference
+1. Multiple image processing parameters are being considered to be integrated into the GUI.
+2. Enabling IP Camera based API for better monitoring and control
+3. Automatic detection of the connected surveillance devices to be enabled as a list
 
-## Credit / Contributors & Owners
+
 
 ## References
 
