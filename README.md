@@ -101,6 +101,13 @@ The following features are integrated in the given code.
 5.  The *Requirements* directory contains a list of necessary packages.  Install them directly or follow the steps mentioned in the *Installation of Dependencies / Development Setup* section (below) for the same.
 6.  Now execute the *GUI.py* file and voila!
 
+<br>
+
+>  Pro Tip
+> 
+> 1. The program is hard-coded to take video input from the base machine's web camera.  One can simply change the `cv2.Videocapture()` method in the *Program* > *GUI.py* file to modify as per requirement.
+> 2. The "Execute" button on the GUI is currently disabled due to point-1.  One can change it's state as ENABLED as per requirement.
+
 </div>
 
 ## Installation of Dependencies / Development Setup
