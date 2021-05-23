@@ -17,7 +17,7 @@ A GUI model of a software prototype with latest features developed to aid survei
 
 ## Screenshot
 
-<img src="https://raw.githubusercontent.com/Kavyapriyakp/Program-GUI/main/Screenshots/01.PNG" alt="idle" style="height: 150px; width:250px;"/>
+<img src="https://raw.githubusercontent.com/Kavyapriyakp/Program-GUI/main/Screenshots/01.PNG" alt="idle" style="height: 150px; width:200px;"/>
 
 
 
