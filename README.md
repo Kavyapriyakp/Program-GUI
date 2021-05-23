@@ -104,9 +104,10 @@ The following features are integrated in the given code.
 <br>
 
 >  Pro Tip
-> 
-> 1. The program is hard-coded to take video input from the base machine's web camera.  One can simply change the `cv2.Videocapture()` method in the *Program* > *GUI.py* file to modify as per requirement.
-> 2. The "Execute" button on the GUI is currently disabled due to point-1.  One can change it's state as ENABLED as per requirement.
+> 1. Press 'q' to release the connected suveillance device from capturing input for the selected module / feature
+> 2. Press 'Esc' to close the GUI
+
+
 
 </div>
 
@@ -507,6 +508,11 @@ The following table mentions all the user-defined functions and it's correspondi
 | `sem_seg()`              | detecs objects of different class of interest in the image                                             |
 | `drawRectangle(frame, minus_frame)`         | - encloses the moving object within a bounding<br>- takes 2 consecutive images / frames as arguments |
 | `objdetect()`             | - detects moving objects<br>- draws bouding box by calling `drawRectangle` method|
+
+
+>Note:
+> 1. The program is hard-coded to take video input from the base machine's web camera.  One can simply change the `cv2.Videocapture()` method in the *Program* > *GUI.py* file to modify as per requirement.
+> 2. The "Execute" button on the GUI is currently disabled due to point-1.  One can change it's state as ENABLED as per requirement.
 
 
 ## Work under Progress
