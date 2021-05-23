@@ -4,10 +4,6 @@
 A GUI model of a software prototype with latest features developed to aid surveillance systems' monitoring.
 </div>
 
-## Project Title
-<div align="justify">
-
-</div>
 
 ## About
 <div align="justify">
@@ -54,7 +50,7 @@ The code was originally created on
 
 ## Features
 <div align="justify">
-The following features are integrated in the given code. Each of these features are explained in detail in it's respective repository.
+The following features are integrated in the given code.
 </div>
 
 1. Background Modification
@@ -95,7 +91,12 @@ The following features are integrated in the given code. Each of these features 
 
 <div align="justify">
 
-Start off by downloading the required models from the *Data Models* directory.  Move the downloaded models to the parent directory.  Sample input and output are depcited in the *Input* and *Output* directories respectively.  These are provided for reference, one can expect a similar output for the given input.  The *Program* directory contains the Python code for the said GUI.  Move the file to the parent directory.  The *Requirements* directory contains a list of necessary packages.  Now execute the *GUI.py* file and voila!
+1. Start off by downloading the required models from the *Data Models* directory.  
+2. Move the downloaded models to the parent directory.  
+3. Sample input and output are depcited in the *Input* and *Output* directories respectively.  These are provided for reference, one can expect a similar output for the given input.
+4.  The *Program* directory contains the Python code for the said GUI.  Move the file to the parent directory.  
+5.  The *Requirements* directory contains a list of necessary packages.  Install them directly or follow the steps mentioned in the *Installation of Dependencies / Development Setup* section (below) for the same.
+6.  Now execute the *GUI.py* file and voila!
 
 </div>
 
@@ -106,16 +107,16 @@ Start off by downloading the required models from the *Data Models* directory.  
 
 <div align="justify">
 
-The code is developed with Python ver.3.8 and `pip` ver.21.0.1 in Windows OS and the same is tested on Ubuntu OS too. The necessary packages and frameworks can be installed from the *Requirements* directory.  
+The code is developed with Python ver.3.8 and `pip` ver.21.0.1 in Windows OS and the same is tested on Ubuntu OS too. The necessary packages and frameworks can be installed from the *Requirements* directory.  However, one can follow the below mentioned steps in case of any errors.
+
 
 ```Python
 pip install -r requirements.txt
 ``` 
 
-However, one can follow the below mentioned steps in case of any errors.
-
 
 Firstly, check the version of Python on your system using:
+
 
 ```Python
 python --version
@@ -129,7 +130,7 @@ If you wish to change / upgrade the version or install Python afresh, visit http
 pip --version
 ```
 
-If you wish to install `pip` afresh:
+If you wish to install `pip` afresh, do:
 
 ```Python
 python3 -m pip install --upgrade pip
@@ -388,20 +389,25 @@ The `cv.Canny(image, threshold1, threshold2, apertureSize, L2gradient)` method o
 kernel_d = np.ones((3,3), np.uint8)
 kernel_e = np.ones((3,3), np.uint8)
 ```
+
+The `np.ones(shape, dtype = None, order = 'C')` method returns a new array of given shape and data type, where the element’s value is set to 1. It takes upto 3 arguments: integer or sequence of integers, C_contiguous or F_contiguous allocation,data type of returned array; of which the last is optional.  `uint8` is an unsigned 8-bit integer that can represent values between 0 and 255.
+
+
 ```Python
 if(is_blur):
 	minus_frame = GaussianBlur(minus_frame, kernel_gauss, 0)
 minus_Matrix = np.float32(minus_frame)	
 ```
 
-```Python
-minus_Matrix = np.clip(minus_Matrix, 0, 255)
-	minus_Matrix = np.array(minus_Matrix, np.uint8)
-```
+The `GaussianBlur(src, dst, ksize, sigmaX)` method is used to convolve an image with a Gaussian filter (low-pass filter) that removes the high-frequency components.  It takes upto 4 arguments: a matrix representing the source, a matrix representing the destination (optional), size of the kernel, a variable of the type double representing the Gaussian kernel standard deviation in X direction.   `np.float32(src)` is used to convert the (resized) image data from unit8 to float32 for further processing.
+
 
 ```Python
-contours, hierarchy = findContours(minus_Matrix.copy(), RETR_TREE, CHAIN_APPROX_SIMPLE)
+minus_Matrix = np.clip(minus_Matrix, 0, 255)
 ```
+
+The `np.clip(a, a_min, a_max, out=None)` method is used to clip / limit the values in an array.  It takes upto 4 arguments: array containing elements to clip, minimum value, maximum value, array to store the modified input; of which the last is optional.  It returns a clipped array.
+
 
 ```Python
 (x, y, w, h) = boundingRect(c)	
@@ -475,6 +481,8 @@ Many other `tkinter` widgets such as `CheckButton`, `Button`, `Combobox` and var
 </div>
 
 </details>
+
+<br>
 
 The following table mentions all the user-defined functions and it's corresponding description.
 
