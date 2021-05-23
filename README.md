@@ -4,12 +4,6 @@
 A GUI model of a software prototype with latest features developed to aid surveillance systems' monitoring.
 </div>
 
-
-## About
-<div align="justify">
- 
-</div>
-
 ## Build Status
 
 <img src="https://img.shields.io/badge/build-passing-brightgreen"/> <img src="https://img.shields.io/badge/code-latest-orange"/> <img src="https://img.shields.io/badge/langugage-python-blue"/>
