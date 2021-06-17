@@ -96,7 +96,7 @@ The following features are integrated in the given code.
 
 1. Start off by downloading the required models from the *Data Models* directory.  
 2. Move the downloaded models to the parent directory.  
-3. Sample input and output are depcited in the *Input* and *Output* directories respectively.  These are provided for reference, one can expect a similar output for the given input.
+3. Sample input and output are depicted in the *Input* and *Output* directories respectively.  These are provided for reference, one can expect a similar output for the given input.
 4.  The *Program* directory contains the Python code for the said GUI.  Move the file to the parent directory.  
 5.  The *Requirements* directory contains a list of necessary packages.  Install them directly or follow the steps mentioned in the *Installation of Dependencies / Development Setup* section (below) for the same.
 6.  Now execute the *GUI.py* file and voila!
@@ -505,7 +505,7 @@ The following table mentions all the user-defined functions and it's correspondi
 | `bgblur()`                | applies a low-pass filter to blur outlier pixles                                                       |
 | `bgcolour()`              | sets a colour to outlier pixels                                                                        |
 | `inst_seg()`             | detects distinct instances of objects of interest in the image                                         |
-| `sem_seg()`              | detecs objects of different class of interest in the image                                             |
+| `sem_seg()`              | detects objects of different class of interest in the image                                             |
 | `drawRectangle(frame, minus_frame)`         | - encloses the moving object within a bounding<br>- takes 2 consecutive images / frames as arguments |
 | `objdetect()`             | - detects moving objects<br>- draws bouding box by calling `drawRectangle` method|
 
