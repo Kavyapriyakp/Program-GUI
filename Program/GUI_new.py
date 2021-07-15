@@ -3,6 +3,8 @@
 import tkinter
 from tkinter import*
 from tkinter import ttk
+from tkinter import *
+from tkinter import filedialog
 from _cffi_backend import callback
 from PIL import ImageTk, Image
 import cv2
@@ -18,6 +20,11 @@ import argparse
 import imutils
 
 #______________________________________________________________USER-DEFINED FUNCTIONS___________________________________________________________________
+
+def browseFiles():
+    filename = filedialog.askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.txt*"),("all files","*.*")))
+    label_file_explorer.configure(text=""+filename)
+
 
 def cameradetect():
     cap = cv2.VideoCapture(0) 
@@ -155,10 +162,11 @@ def objdetect():
    
 window=Tk()
 window.configure(background="grey64");
+label_file_explorer = Label(window, text = "", fg = "blue")
 window.title("Surveillance System")
 window.resizable(0,0)
 window.geometry('850x500')
-
+label_file_explorer.grid(column = 1, row = 1)
 #____________________________________________SETTING VARIBALES TO CHECK STATE OF BUTTON (CHECKED OR UNCHECKED)___________________________________________________________________
 
 
