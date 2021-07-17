@@ -4,6 +4,9 @@
 A GUI model of a software prototype with latest features developed to aid surveillance systems' monitoring.
 </div>
 
+Image (artistic) [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/jantic/DeOldify/blob/master/ImageColorizerColab.ipynb) |
+Video [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/jantic/DeOldify/blob/master/VideoColorizerColab.ipynb)
+
 
 ## Build Status
 
