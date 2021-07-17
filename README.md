@@ -6,7 +6,7 @@ A GUI model of a software prototype with latest features developed to aid survei
 
 <br>
 
-Background Subtraction [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/Kavyapriyakp/Program-GUI/blob/main/Background_Subtraction.ipynb) |
+Background Subtraction [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">]() |
 
 
 
