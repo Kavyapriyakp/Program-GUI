@@ -6,7 +6,7 @@ A GUI model of a software prototype with latest features developed to aid survei
 
 <br>
 
-Atmoshperic Turbulence Mitigation [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">]() | Moving Object Detection [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">]() 
+Atmoshperic Turbulence Mitigation [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">]() | Moving Object Detection [<img src="https://colab.research.google.com/assets/colab-badge.svg" align="center">](https://colab.research.google.com/github/Kavyapriyakp/Program-GUI/blob/main/Moving_Object_Detection.ipynb) 
 
 
 
