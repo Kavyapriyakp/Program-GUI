@@ -19,12 +19,10 @@ from pathlib import Path
 #________USER-DEFINED FUNCTIONS_______
 
 
-
-
 kernel_d = np.ones((3,3), np.uint8)
 kernel_e = np.ones((3,3), np.uint8)
 kernel_gauss = (3,3)
-dilate_times = 15                        #initializing_integer_variables
+dilate_times = 5                        #initializing_integer_variables
 erode_times = 10                       #initializing_integer_variables
 is_blur = True                          #initializing_boolean_variables
 is_close = True                         #initializing_boolean_variables
@@ -36,7 +34,7 @@ fac = 2                                 #initializing_integer_variables
    
 window=Tk()
 window.configure(background="grey64");
-window.title("BoSS")
+window.title("BOSS")
 window.resizable(0,0)
 window.geometry('1300x680')
 
