@@ -72,8 +72,7 @@ value_label2.place(x=1240,y=52)'''
 
 
 
-
-#________CREATING BUTTONS_______
+#________CREATING BUTTONS  (1/2)_______
 
 
 title = Label(window, text = "Border Surveillance System",font=("Times New Roman",18, 'bold'),fg="black",bg="grey64").place(x=495, y=10)
@@ -153,6 +152,8 @@ def browseFiles():
     player2 = tkvideo(objdetect(), video_2, loop = 0, size = (500,500))
     player2.play()'''
 
+#______CREATING BUTTONS (2/2)_______
+      
 C1=Button(window,text = "Browse",font=("Times New Roman",12, 'bold'),command=browseFiles).place(x=100,y=10)
 C10=Checkbutton(window,text = "Input",font=("Times New Roman",12, 'bold'), background="grey64", foreground="black", var=chkValue1, state=DISABLED).place(x=140,y=50)
 C2=Button(window,text="Live Input",font=("Times New Roman",12, 'bold'),state=DISABLED).place(x=300,y=10)
