@@ -71,7 +71,7 @@ def bgblur():
     change_bg.blur_camera(capture, frames_per_second=10,extreme = True, show_frames = True, frame_name = "frame", output_video_name="bgblur_out.mp4")
 
 
-def bgcolour():
+def bgcolor():
     capture = cv2.VideoCapture(0)
     change_bg.color_camera(capture, frames_per_second=10,colors = (0, 128, 0), show_frames = True, frame_name = "frame", output_video_name="output_video.mp4")
 
