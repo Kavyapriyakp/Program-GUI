@@ -26,6 +26,7 @@ Atmoshperic Turbulence Mitigation [<img src="https://colab.research.google.com/a
 <img src="https://raw.githubusercontent.com/Kavyapriyakp/Program-GUI/main/Screenshots/03.PNG" alt="check box functionality" style="height: 150px; width:200px;"/>
 
 
+
 <img src="https://raw.githubusercontent.com/Kavyapriyakp/Program-GUI/main/Screenshots/02.jpeg" alt="selecting a connected device" style="height: 150px; width:200px;"/>
 
 
